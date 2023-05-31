@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    <script type="text/javascript">
+      window.onload = () => {
+        const s = ( p ) => {
+          p.setup = function() {
+            p.createCanvas(230, 240);
+            p.noFill();
+            p.colours = [
+              '#000000',
+              '#95a179',
+              '#5d7656'
+            ];
+            p.count = 0;
+          };
+          p.draw = function() {
+            p.strokeWeight(p.random(2));
+            p.stroke(p.colours[Math.round(p.random(2))]);
+            let x = p.random(100),
+                y = p.random(100);
+            if(p.count < 50){
+              p.bezier(
+                60+x,
+                20+y,
+                70+x,
+                20+y,
+                100+x,
+                100+y,
+                100+x,
+                100+y);
+              p.count++;
+            }
+          };
+        };
+        let grass2 = new p5(s, 'grass-2'),
+            grass1 = null,
+            grass3 = null;
+
+        const figure = document.getElementById("figure");
+        figure.onclick = () => {
+          if(grass1 ==  null){
+            grass1 = new p5(s, 'grass-1');
+            grass3 = new p5(s, 'grass-3');
+          }
+        }
+      }
+    </script>
+    <style type="text/css">
+      body {
+        background-color:#bc9e7c;
+        margin:0;
+        padding:0;
+        height:100%;
+      }
+      div#container {
+        height:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      div#stage {
+        width:700px;
+        height:240px;
+        zoom:2;
+      }
+      div.landscape {
+        position:relative;
+        float:left;
+        width:230px;
+        height:240px;
+      }
+      a#figure {
+        position:relative;
+        display:block;
+        top:60px;
+        left:60px;
+        width:87px;
+        height:104px;
+        background:url('images/figure-in-grass.png') no-repeat;
+        opacity:0.1;
+      }
+      a#figure:hover {
+        animation: 1s ease 0s infinite alternate none running show-figure;
+      }
+      @keyframes show-figure {
+        0% {opacity:0;}
+        80% {opacity:0.5;}
+        82% {opacity:0.4;}
+        84% {opacity:0.5;}
+        86% {opacity:0.4;}
+        100% {opacity:0.6;}
+      }
+      div.grass {
+        position:absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="stage">
+        <div id="landscape-1" class="landscape">
+          <div id="grass-1" class="grass"></div>
+        </div>
+        <div id="landscape-2" class="landscape">
+          <div id="grass-2" class="grass"></div>
+          <a id="figure"></a>
+        </div>
+        <div id="landscape-3" class="landscape">
+          <div id="grass-3" class="grass"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

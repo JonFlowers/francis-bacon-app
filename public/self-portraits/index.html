@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <style type="text/css">
+      div {
+        width:390px;
+        height:450px;
+        float:left;
+      }
+      div#self-portrait-1 {
+        animation: 4s linear infinite normal forwards running portraits;
+      }
+      div#self-portrait-2 {
+        animation: 2s linear infinite normal forwards running portraits;
+      }
+      div#self-portrait-3 {
+        animation: 3s linear infinite normal forwards running portraits;
+      }
+      @keyframes portraits {
+        0% { background-image: url('images/bacon-1.jpeg'); }
+        20% { background-image: url('images/bacon-4.jpeg'); }
+        40% { background-image: url('images/bacon-6.jpeg'); }
+        60% { background-image: url('images/bacon-5.jpeg'); }
+        80% { background-image: url('images/bacon-7.jpeg'); }
+        100% { background-image: url('images/bacon-1.jpeg'); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="self-portrait-1"></div>
+    <div id="self-portrait-2"></div>
+    <div id="self-portrait-3"></div>
+  </body>
+</html>

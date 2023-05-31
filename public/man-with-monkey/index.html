@@ -1,0 +1,65 @@
+<html>
+<head>
+  <script type="text/javascript"></script>
+  <style type="text/css">
+    div.man-with-monkey {
+      width:361px;
+      height:450px;
+      position:absolute;
+      left:200px;
+      top:200px;
+      border:1px solid #000;
+    }
+    div#background {
+      background-image: url('images/man-with-monkey-background.png');
+    }
+    div#man {
+      background-image: url('images/man-with-monkey-man.png');
+      animation-name: man;
+      animation-duration: 2s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+    div#no-monkey {
+      background-image: url('images/man-with-monkey-no-monkey.png');
+      animation-name: no-monkey;
+      animation-duration: 4s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+    @keyframes no-monkey {
+      0% { opacity:1; }
+      40% { opacity:0.2; }
+      42% { opacity:0.3; }
+      44% { opacity:0.2; }
+      46% { opacity:0.3; }
+      60% { opacity:0.1; }
+      62% { opacity:0.2; }
+      64% { opacity:0.1; }
+      66% { opacity:0.2; }
+      68% { opacity:0.1; }
+      100% { opacity:1; }
+    }
+    @keyframes man {
+      0% { opacity:1; }
+      40% { opacity:0.2; }
+      42% { opacity:0.6; }
+      44% { opacity:0.1; }
+      46% { opacity:0.7; }
+      60% { opacity:0.1; }
+      62% { opacity:0.8; }
+      64% { opacity:0.2; }
+      66% { opacity:0.6; }
+      68% { opacity:0.2; }
+      100% { opacity:1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <div id="background" class="man-with-monkey"></div>
+    <div id="man" class="man-with-monkey"></div>
+    <div id="no-monkey" class="man-with-monkey"></div>
+  </div>
+</body>
+</html>

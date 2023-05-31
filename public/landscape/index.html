@@ -1,0 +1,248 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    <script type="text/javascript">
+      function createGrass(element, settings, callback){
+        var s = ( p ) => {
+          p.setup = function() {
+            p.createCanvas(settings.width, settings.height);
+            p.noFill();
+            p.colours = [
+              '#000000',
+              '#95a179',
+              '#5d7656'
+            ];
+            p.count = 0;
+          };
+          p.draw = function() {
+            p.strokeWeight(p.random(2));
+            p.stroke(p.colours[Math.round(p.random(2))]);
+            let x = p.random(settings.bounds),
+                y = p.random(settings.bounds);
+            if(p.count < settings.maxCount){
+              p.bezier(
+                60+x,
+                20+y,
+                70+x,
+                20+y,
+                100+x,
+                100+y,
+                100+x,
+                100+y);
+              p.count++;
+            } else {
+              p.noLoop();
+              callback(element);
+            }
+          };
+        };
+        let grass = new p5(s, element)
+      }
+
+      window.onload = () => {
+
+        grassDone = function(element) {
+          document.getElementById(element).classList.add("rustle");
+        }
+
+        const grassSettings1 = {
+          "width": 230,
+          "height": 240,
+          "bounds": 100,
+          "maxCount": 80
+        }
+
+        createGrass('grass', grassSettings1, grassDone);
+
+        const grassSettings5 = {
+          "width": 230,
+          "height": 240,
+          "bounds": 100,
+          "maxCount": 80
+        }
+
+        createGrass('grass-5', grassSettings5, grassDone);
+
+        const grassSettings2 = {
+          "width": 300,
+          "height": 320,
+          "bounds": 200,
+          "maxCount": 200
+        }
+        createGrass('grass-2', grassSettings2, grassDone);
+
+        const grassSettings6 = {
+          "width": 300,
+          "height": 320,
+          "bounds": 200,
+          "maxCount": 200
+        }
+        createGrass('grass-6', grassSettings6, grassDone);
+
+        const grassSettings3 = {
+          "width": 400,
+          "height": 420,
+          "bounds": 300,
+          "maxCount": 400
+        }
+        createGrass('grass-3', grassSettings3, grassDone);
+
+        createGrass('grass-4', grassSettings3, grassDone);
+
+      }
+    </script>
+    <style type="text/css">
+      body {
+        background-color:#0f1719;
+        background-image:url('images/striated.png');
+        background-size:800px 300px;
+        background-repeat:repeat-x;
+        margin:0;
+        padding:0;
+        height:100%;
+      }
+      #container {
+        height:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #stage {
+        width:100%;
+        height:500px;
+      }
+      #sky {
+        background-image:url('images/sky.png');
+        background-size:100% 300px;
+        width:2000px;
+        height:300px;
+      }
+      #strip {
+        background-color:#cca97f;
+        height:30px;
+        width:2000px;
+      }
+      #landscape {
+        background-image:url('images/grass-background.png');
+        background-size:100% 200px;
+        background-color:#bc9e7c;
+        width:2000px;
+        height:200px;
+      }
+      #figure {
+        position:absolute;
+        display:block;
+        width:87px;
+        height:104px;
+        left:70px;
+        top:40px;
+        background:url('images/figure-in-grass.png') no-repeat;
+        opacity:0.2;
+      }
+      #figure:hover {
+        animation: 1s ease 0s infinite alternate none running show-figure;
+      }
+      #figure-2 {
+        position:absolute;
+        display:block;
+        width:154px;
+        height:135px;
+        left:100px;
+        top:90px;
+        background:url('images/figure-2.png') no-repeat;
+        opacity:0.2;
+      }
+      #figure-2:hover {
+        animation: 1s ease 0s infinite alternate none running show-figure;
+      }
+      #figure-3 {
+        position:absolute;
+        display:block;
+        width:186px;
+        height:103px;
+        left:70px;
+        top:90px;
+        background:url('images/figure-3.png') no-repeat;
+        opacity:0.2;
+      }
+      #figure-3:hover {
+        animation: 1s ease 0s infinite alternate none running show-figure;
+      }
+      @keyframes show-figure {
+        0% {opacity:0.2;}
+        80% {opacity:0.5;}
+        82% {opacity:0.4;}
+        84% {opacity:0.5;}
+        86% {opacity:0.4;}
+        100% {opacity:0.6;}
+      }
+      .grass{
+        position:relative;
+        float:left;
+      }
+      #grass {
+        top:0px;
+        left:60px;
+      }
+      #grass-5 {
+        top:-20px;
+        left:240px;
+      }
+      #grass-2 {
+        top:-60px;
+        left:50px;
+      }
+      #grass-6 {
+        top:-20px;
+        left:270px;
+      }
+      #grass-3 {
+        top:-120px;
+        left:200px;
+      }
+      #grass-4 {
+        top:-60px;
+        left:-100px;
+      }
+
+      .rustle {
+        animation: 1s ease 0s infinite alternate none running rustle;
+      }
+      @keyframes rustle {
+        0% {transform: scale(1, 1);}
+        45% {transform: scale(1, 1);}
+        50% {transform: scale(1.02, 1);}
+        55% {transform: scale(1, 1);}
+        60% {transform: scale(1.04, 1);}
+        65% {transform: scale(1, 1);}
+        70% {transform: scale(1.06, 1);}
+        75% {transform: scale(1, 1);}
+        80% {transform: scale(1.04, 1);}
+        85% {transform: scale(1, 1);}
+        100% {transform: scale(1, 1);}
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="stage">
+        <div id="sky"></div>
+        <div id="strip"></div>
+        <div id="landscape">
+          <div id="grass-5" class="grass"></div>
+          <div id="grass" class="grass">
+            <a id="figure"></a>
+          </div>
+          <div id="grass-6" class="grass"></div>
+          <div id="grass-2" class="grass">
+            <a id="figure-3"></a>
+          </div>
+          <div id="grass-3" class="grass"></div>
+          <div id="grass-4" class="grass">
+            <a id="figure-2"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

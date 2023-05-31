@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #181e24;
+}
+
+div#title.hide {
+  display: none;
+}
+div#bull.show,
+div#thumbnails.show,
+div#title {
+  display: block;
+}

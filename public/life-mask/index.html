@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <style type="text/css">
+      div {
+        width:372px;
+        height:450px;
+        float:left;
+      }
+      div#life-mask-1 {
+        animation: 3s linear infinite normal forwards running portraits;
+      }
+      div#life-mask-2 {
+        animation: 1s linear infinite normal forwards running portraits;
+      }
+      div#life-mask-3 {
+        animation: 2s linear infinite normal forwards running portraits;
+      }
+      @keyframes portraits {
+        0% { background-image: url('images/life-mask-1.jpeg'); }
+        33.3% { background-image: url('images/life-mask-2.jpeg'); }
+        66.6% { background-image: url('images/life-mask-3.jpeg'); }
+        100% { background-image: url('images/life-mask-1.jpeg'); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="life-mask-1"></div>
+    <div id="life-mask-2"></div>
+    <div id="life-mask-3"></div>
+  </body>
+</html>

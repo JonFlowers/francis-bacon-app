@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <style type="text/css">
+      div {
+        width:384px;
+        height:450px;
+      }
+      div#three-portraits {
+        animation: 2s linear infinite normal forwards running portraits;
+      }
+      @keyframes portraits {
+        0% { background-image: url('images/portrait-1.jpeg'); }
+        33.3% { background-image: url('images/portrait-2.jpeg'); }
+        66.6% { background-image: url('images/portrait-3.jpeg'); }
+        100% { background-image: url('images/portrait-1.jpeg'); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="three-portraits"></div>
+  </body>
+</html>

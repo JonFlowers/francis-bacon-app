@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+  window.onload = function(){
+    const element = document.getElementById("bull-rear");
+    if(element){
+      element.addEventListener("animationend", listener, false);
+    }
+  }
+  function listener(event) {
+    document.getElementById("bull-rear").remove();
+    document.getElementById("white-panel-border-left").remove();
+    document.getElementById("white-panel-left").remove();
+    document.getElementById("white-panel-right").remove();
+
+    const title = document.getElementById("title");
+    title.style.display = 'block';
+  }
+</script>
+<style type="text/css">
+body {
+  margin:0px;
+}
+div#black-panel{
+  left:360px;
+  width: 488px;
+  height: 562px;
+  background-color: black;
+  position: absolute;
+  animation-name: black-panel;
+  animation-duration: 4s;
+  background-size: cover;
+}
+div#bull-rear{
+  width:488px;
+  height:562px;
+  background-image: linear-gradient(black, transparent 30%), url('images/bull-rear.jpg');
+  background-size: 120px 380px;
+  background-repeat:no-repeat;
+  background-position:left bottom;
+  animation-name: bull-rear;
+  animation-duration: 4s;
+  opacity:0;
+}
+div#white-panel-border-left{
+	border:1px solid #000;
+  left:420px;
+  top:100px;
+  width: 20px;
+  height: 460px;
+  background-color: white;
+  position: absolute;
+  animation-name: white-panel-border-left;
+  animation-duration: 4s;
+  opacity:0
+}
+div#bull-slice{
+  width: 20px;
+  height: 460px;
+  background-image: url('images/bull-border.jpg');
+  background-size: 20px 460px;
+  animation-name: bull-slice;
+  animation-duration: 4s;
+  opacity:0;
+}
+
+div#white-panel-left{
+	border:1px solid #000;
+  left:440px;
+  top:100px;
+  width: 100px;
+  height: 460px;
+  background-color: white;
+  position: absolute;
+  animation-name: white-panel-left;
+  animation-duration: 4s;
+  opacity:0
+}
+div#bull-body{
+  width: 100px;
+  height: 460px;
+  background-image: url('images/bull-body.jpg');
+  background-size: 100px 460px;
+  animation-name: bull-body;
+  animation-duration: 4s;
+  opacity:0;
+}
+
+div#white-panel-right{
+	border:1px solid #000;
+  border-right:10px solid #000;
+  left:544px;
+  top:190px;
+  width: 170px;
+  height: 370px;
+  background-color: white;
+  position: absolute;
+  animation-name: white-panel-right;
+  animation-duration: 4s;
+  opacity:0
+}
+div#bull-horn{
+  width: 170px;
+  height: 370px;
+  background-image: url('images/bull-horn.jpg');
+  background-size: contain;
+  animation-name: bull-horn;
+  animation-duration: 4s;
+  opacity:0;
+}
+div#title{
+  margin:340px 0 0 0px;
+  width: 400px;
+  height: 100px;
+  display:none;
+  color:#000;
+  font-family:Verdana;
+  background-color:#FFF;
+  animation-name: slideIn;
+  animation-duration: 2s;
+  opacity:0.8;
+  position:relative;
+  padding:20px 0 0 0;
+}
+h1 {
+  margin:0 0 0 20px;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  position:relative;
+  opacity:0.7
+}
+h2 {
+  margin:0 0 0 20px;
+  animation-name: fadeIn;
+  animation-duration: 2.5s;
+  position:relative;
+  opacity:0.7
+}
+
+@keyframes black-panel {
+  0%   {left:80px; width: 244px}
+  80% {left:300px; width: 244px}
+  100% {left:360px; width: 488px}
+}
+@keyframes white-panel-border-left {
+  0%   {left:280px;opacity:0}
+  80% {left:420px;opacity:1.0}
+  100% {left:360px;opacity:0}
+}
+@keyframes white-panel-left {
+  0%   {left:280px;opacity:0}
+  80%  {left:440px;opacity:1.0}
+  100% {left:360px;opacity:0}
+}
+@keyframes white-panel-right {
+  0%   {left:280px;border-right:1px solid #000;opacity:0}
+  80% {left:544px;border-right:10px solid #000;opacity:1.0}
+  100% {left:360px;opacity:0}
+}
+
+@keyframes bull-rear {
+  0%   {opacity:0; background-size: 200px 380px}
+  50%  {opacity:1}
+  100%  {opacity:0; background-size: 120px 380px}
+}
+@keyframes bull-slice{
+  0%   {opacity:0; background-size: 80px 460px}
+  55%  {opacity:1}
+  100% {opacity:0; background-size: 20px 460px}
+}
+@keyframes bull-body {
+  0%   {opacity:0; background-size: 200px 460px}
+  60%  {opacity:1}
+  100% {opacity:0; background-size: 100px 460px}
+}
+@keyframes bull-horn {
+  0%   {opacity:0; background-size: 280px 370px}
+  65%  {opacity:1}
+  100% {opacity:0; background-size: 170px 370px}
+}
+@keyframes fadeIn {
+  0% {opacity:0;left:-100px}
+  100% {opacity:0.7;left:0px}
+}
+@keyframes slideIn {
+  0% {opacity:0;left:-160px}
+  100% {opacity:0.8;left:0px}
+}
+
+</style>
+</head>
+<body>
+
+<div id="black-panel">
+  <div id="bull-rear"></div>
+  <div id="title">
+    <h1>Francis Bacon</h1>
+    <h2>1909 - 1992</h2>
+  </div>
+</div>
+<div id="white-panel-border-left">
+  <div id="bull-slice"></div>
+</div>
+<div id="white-panel-left">
+  <div id="bull-body"></div>
+</div>
+<div id="white-panel-right">
+  <div id="bull-horn"></div>
+</div>
+
+</body>
+</html>
