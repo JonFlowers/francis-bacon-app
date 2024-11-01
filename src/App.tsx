@@ -5,6 +5,7 @@ import Stage from "./Components/Stage";
 import Content from "./Components/Content";
 import "./App.css";
 import "./styles.css";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 class App extends React.Component {
   render(): React.ReactNode {
@@ -14,6 +15,7 @@ class App extends React.Component {
         <SpaceFrame />
         <Stage />
         <Content />
+        <SpeedInsights />
       </div>
     );
   }
